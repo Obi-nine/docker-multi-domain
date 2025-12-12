@@ -64,16 +64,6 @@ else
     echo -e "${YELLOW}⚠️  Default certificate already exists, skipping...${NC}"
 fi
 
-# Create Docker network
-echo ""
-echo "🌐 Creating Docker network '${DOCKER_NETWORK_NAME:-web}'..."
-if ! docker network inspect ${DOCKER_NETWORK_NAME:-web} >/dev/null 2>&1; then
-    docker network create ${DOCKER_NETWORK_NAME:-web}
-    echo -e "${GREEN}✅ Docker network created${NC}"
-else
-    echo -e "${YELLOW}⚠️  Network already exists, skipping...${NC}"
-fi
-
 # Start services
 echo ""
 echo "🐳 Starting Docker services..."
@@ -104,7 +94,7 @@ echo "      ./add-domain.sh app.yourdomain.com container-name:port"
 echo ""
 echo "   3. Your other Docker projects should include:"
 echo "      networks:"
-echo "        ${DOCKER_NETWORK_NAME:-web}:"
+echo "        ${DOCKER_NETWORK_NAME:-infrastructure-web}:"
 echo "          external: true"
 echo ""
 echo "📊 Check status: docker compose ps"

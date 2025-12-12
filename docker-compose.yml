@@ -36,7 +36,7 @@ services:
 
 networks:
   web:
-    name: ${DOCKER_NETWORK_NAME:-web}
+    name: ${DOCKER_NETWORK_NAME:-infrastructure-web}
     driver: bridge
 
 volumes:
