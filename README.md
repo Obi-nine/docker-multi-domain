@@ -31,9 +31,9 @@ Perfect for hobbyists and small projects running:
 
 ## Quick Start
 
-- Create custom .env file from tempalte
+- Create custom .env file from template
 - Run setup.sh  
-- Run add-domain.sh ./add-domain.sh examle.com frontend:3000 
+- Run ./add-domain.sh examle.com frontend:3000 
 
 
 ## Architecture
