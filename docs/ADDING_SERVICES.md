@@ -296,7 +296,7 @@ services:
   backend:
     networks:
       - internal  # Can access DB
-      - web       # Accessible via nginx
+      - infrastructure-web       # Accessible via nginx
 ```
 
 ### 2. Use Environment Variables

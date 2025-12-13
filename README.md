@@ -31,7 +31,10 @@ Perfect for hobbyists and small projects running:
 
 ## Quick Start
 
-Coming soon...
+- Create custom .env file from tempalte
+- Run setup.sh  
+- Run add-domain.sh ./add-domain.sh <domain> <service:port> 
+
 
 ## Architecture
 
