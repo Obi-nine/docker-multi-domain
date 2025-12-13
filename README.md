@@ -33,7 +33,7 @@ Perfect for hobbyists and small projects running:
 
 - Create custom .env file from tempalte
 - Run setup.sh  
-- Run add-domain.sh ./add-domain.sh <domain> <service:port> 
+- Run add-domain.sh ./add-domain.sh examle.com frontend:3000 
 
 
 ## Architecture
