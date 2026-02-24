@@ -81,6 +81,27 @@ else
     exit 1
 fi
 
+# Setup cron job for nginx reload
+echo ""
+echo "⏰ Setting up cron job for nginx reload..."
+CRON_JOB="0 0,12 * * * docker exec infrastructure-nginx nginx -s reload"
+
+# Check if cron job already exists
+if crontab -l 2>/dev/null | grep -q "infrastructure-nginx"; then
+    echo -e "${YELLOW}⚠️  Cron job already exists, skipping...${NC}"
+else
+    # Add cron job
+    (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+    echo -e "${GREEN}✅ Cron job added (nginx reload at midnight and noon)${NC}"
+fi
+
+# Remove old certbot cron if exists
+if crontab -l 2>/dev/null | grep -q "certbot renew"; then
+    echo -e "${YELLOW}⚠️  Removing old certbot cron job...${NC}"
+    crontab -l | grep -v "certbot renew" | crontab -
+    echo -e "${GREEN}✅ Old certbot cron job removed${NC}"
+fi
+
 # Instructions
 echo ""
 echo -e "${GREEN}✅ Setup complete!${NC}"
